@@ -1,0 +1,32 @@
+<main class="row mx-4 main-container">
+  <section
+    class="col-sm-12 col-md-8"
+    [ngClass]="{ 'order-2': tabletMode === 'MOBILE' }"
+  >
+    <app-product-list></app-product-list>
+  </section>
+  <section
+    class=" col-sm-12 col-md-4 "
+    [ngClass]="{
+      'order-1 fixed__div': tabletMode === 'MOBILE',
+      add__scroll: tabletMode === 'MOBILE' && !hideCart
+    }"
+  >
+    <button
+      class="btn btn-lg  mb-4 ml-auto bg-success"
+      style="background-color:transparent;"
+      (click)="toggleCollapseCart()"
+      *ngIf="tabletMode === 'MOBILE'"
+    >
+      <i class="fas fa-shopping-cart"></i>
+      {{ totalCartItems ? totalCartItems : null }}
+    </button>
+    <app-cart-list
+      [ngClass]="{
+        collapse: hideCart && tabletMode === 'MOBILE',
+        add__scroll: tabletMode === 'MOBILE' && !hideCart
+      }"
+      [tabletMode]="tabletMode"
+    ></app-cart-list>
+  </section>
+</main>

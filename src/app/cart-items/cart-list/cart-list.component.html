@@ -1,0 +1,18 @@
+<h2 class="text-center">Cart</h2>
+<div *ngIf="selectedProducts && selectedProducts.length > 0; else noItems">
+  <div class="col-xs-12 mb-4 " *ngFor="let item of selectedProducts">
+    <app-cart-item [product]="item" [tabletMode]="tabletMode"></app-cart-item>
+  </div>
+
+  <div class="col-xs-12  d-flex">
+    <button type="button" class="btn btn-danger" (click)="clearCart()">
+      Clear cart
+    </button>
+    <button type="button" class="btn btn-primary ml-auto">
+      Pay ${{ totalPrice }}
+    </button>
+  </div>
+</div>
+<ng-template #noItems>
+  <h4 class="text-center">There are no items in cart.</h4>
+</ng-template>

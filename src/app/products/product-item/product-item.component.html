@@ -1,0 +1,22 @@
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 mb-4">
+  <div class="card text-center product">
+    <div class="card-body">
+      <img
+        #productImage
+        class="card-img-top img-fluid product__image w-50"
+        [src]="product.imagePath"
+        (error)="errorOnLoad(productImage)"
+        alt="{{ product.name }}"
+      />
+      <h2 class="card-text lead mt-2">{{ product.name }}</h2>
+      <h2 class="card-text lead mb-2">{{ product.price }} Kr</h2>
+      <button
+        type="button"
+        class="btn btn-lg btn-primary"
+        (click)="onSelected()"
+      >
+        {{ product.addToCartText }}
+      </button>
+    </div>
+  </div>
+</div>
