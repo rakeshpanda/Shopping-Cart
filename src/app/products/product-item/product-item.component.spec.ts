@@ -17,9 +17,7 @@ describe("ProductItemComponent", () => {
     TestBed.configureTestingModule({
       declarations: [ProductItemComponent],
       imports: [],
-      providers: [
-        { provide: ProductService, useClass: ProductServiceMock }
-      ]
+      providers: [{ provide: ProductService, useClass: ProductServiceMock }]
     });
     fixture = TestBed.createComponent(ProductItemComponent);
     component = fixture.componentInstance;

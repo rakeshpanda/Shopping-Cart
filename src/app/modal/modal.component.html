@@ -1,0 +1,27 @@
+<div
+  (click)="onContainerClicked($event)"
+  class="modal fade "
+  tabindex="-1"
+  [ngClass]="{ in: visibleAnimate }"
+  [ngStyle]="{
+    display: visible ? 'block' : 'none',
+    opacity: visibleAnimate ? 1 : 0
+  }"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+     
+        <div class="modal-body">
+            <div class="d-flex align-items-center ">
+            <div class="text-danger font-weight-bolder">
+          {{ messageText }}
+        </div>
+        <div class=" mr-4 ml-auto">
+          <button class="btn btn-danger btn-xs" (click)="hide()">
+            <i class="fas fa-window-close"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

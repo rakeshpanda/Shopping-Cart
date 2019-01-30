@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.products = this.productService.getProducts();
-    this.productService.productInCarts.subscribe((cartProducts: Product[]) => {
+    this.productService.productInCarts$.subscribe((cartProducts: Product[]) => {
       this.products = cartProducts;
     });
   }

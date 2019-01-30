@@ -87,12 +87,17 @@ h6 {
   top: 0;
   right: 0;
   z-index: 999;
-  background: var(--color-primary);
-  color: var(--color-white);
+  color: var(--color-black);
   transition: all 0.3s;
+  background: #6f7c6f;
 }
 
 .add__scroll {
   height: 100vh;
   overflow-y: scroll;
 }
+
+.modal {
+  background: rgba(0,0,0,0.6);
+}
+

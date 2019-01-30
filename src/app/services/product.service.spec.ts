@@ -8,17 +8,23 @@ import {
 } from "./data-storage.service.mock";
 import { of } from "rxjs";
 import { LoggerTestingModule } from "ngx-logger";
+import { AuthService } from "../auth/auth.service";
+import { RouterTestingModule } from "@angular/router/testing";
+import { appRoutes } from "../app.module";
+import { LoginComponent } from "../auth/login/login.component";
+import { HeaderComponent } from "../header/header.component";
+import { SignupComponent } from "../auth/signup/signup.component";
 
 describe("ProductService", () => {
   let service: ProductService;
   let dataStorageService: DataStorageService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [LoggerTestingModule],
+      imports: [LoggerTestingModule, RouterTestingModule.withRoutes([])],
       providers: [
         ProductService,
-        { provide: DataStorageService, useClass: DataStorageServiceMock }
-        
+        { provide: DataStorageService, useClass: DataStorageServiceMock },
+        AuthService
       ]
     });
     service = TestBed.get(ProductService);
@@ -42,9 +48,12 @@ describe("ProductService", () => {
     spyOn(dataStorageService, "addProductsToCart").and.returnValue(
       of([ProductList[0]])
     );
-
-    service.addToCart(ProductList[0]);
+    spyOn(dataStorageService, "getSelectedProducts").and.returnValue(
+      of([ProductList[0]])
+    );
     let response = service.getSelectedProducts();
+    service.addToCart(ProductList[0]);
+    response = service.getSelectedProducts();
     tick();
     expect(JSON.stringify(response)).toBe(JSON.stringify([ProductList[0]]));
   }));

@@ -16,7 +16,7 @@ export class CartListComponent implements OnInit {
 
   ngOnInit() {
     this.selectedProducts = this.productService.getSelectedProducts();
-    this.productService.cartItemsChanged.subscribe((selProducts: Product[]) => {
+    this.productService.cartItemsChanged$.subscribe((selProducts: Product[]) => {
       this.selectedProducts = selProducts;
       const reducer = (acc: number, p: Product) =>
         acc + p.getQuantity() * p.getPrice();

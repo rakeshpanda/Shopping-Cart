@@ -1,13 +1,14 @@
 import { Component, OnInit, HostListener } from "@angular/core";
-import { ProductService } from "./services/product.service";
-import { Product } from "./model/poduct.model";
-import * as firebase from "firebase/app";
+import { Product } from "src/app/model/poduct.model";
+import { ProductService } from "src/app/services/product.service";
+import { AuthService } from "../auth/auth.service";
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html"
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"]
 })
-export class AppComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   cartProducts: Product[];
   totalCartItems: number;
   tabletMode: string;
@@ -16,13 +17,12 @@ export class AppComponent implements OnInit {
   onResize() {
     this.setTabletMode();
   }
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-    firebase.initializeApp({
-      apiKey: "AIzaSyCfl67uB3OERPbSU3Gc4djB4aVauelonsM",
-      authDomain: "shopping-cart-f231e.firebaseapp.com"
-    });
     this.setTabletMode();
     this.productService.cartItemsChanged$.subscribe((products: Product[]) => {
       const reducer = (acc: number, p: Product) => acc + p.getQuantity();

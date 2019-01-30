@@ -1,5 +1,5 @@
 import { ProductList } from "./data-storage.service.mock";
-import {  EventEmitter } from "@angular/core";
+import { EventEmitter } from "@angular/core";
 import { Product } from "../model/poduct.model";
 
 export class ProductServiceMock {
@@ -9,6 +9,4 @@ export class ProductServiceMock {
   public getProducts() {
     return ProductList;
   }
-
-  
 }

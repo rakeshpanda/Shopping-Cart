@@ -24,7 +24,6 @@ describe("ProductListComponent", () => {
       imports: [],
       providers: [{ provide: ProductService, useClass: ProductServiceMock }]
     }).compileComponents();
-    
   }));
 
   beforeEach(() => {

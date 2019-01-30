@@ -1,0 +1,61 @@
+<div>
+  <a
+    class="btn btn-lg  position-fixed btn-outline-info"
+    routerLink="/login"
+    *ngIf="tabletMode != 'MOBILE' && !authService.isAuthenticated()"
+    style="z-index:100"
+  >
+    <i class="fa fa-lock"></i> Login
+  </a>
+  <button
+    class="btn btn-lg  position-fixed btn-outline-info"
+    *ngIf="tabletMode != 'MOBILE' && authService.isAuthenticated()"
+    style="z-index:100"
+    (click)="productService.logout()"
+  >
+    <i class="fa fa-unlock"></i>Logout
+  </button>
+</div>
+<section
+  class="col-sm-12 col-md-8"
+  [ngClass]="{ 'order-2': tabletMode === 'MOBILE' }"
+>
+  <app-product-list></app-product-list>
+</section>
+<section
+  class=" col-sm-12 col-md-4 "
+  [ngClass]="{
+    'order-1 fixed__div background-color:rgb(132, 240, 255)': tabletMode === 'MOBILE',
+    add__scroll: tabletMode === 'MOBILE' && !hideCart
+  }"
+>
+  <div class="d-flex ">
+    <button
+      class="btn btn-lg  mb-4 mr-auto bg-success"
+      style="background-color:transparent;"
+      (click)="toggleCollapseCart()"
+      *ngIf="tabletMode === 'MOBILE'">
+      <i class="fas fa-shopping-cart"></i>
+      {{ totalCartItems ? totalCartItems : null }}
+    </button>
+    <a routerLink="/login" *ngIf="tabletMode === 'MOBILE'  && !authService.isAuthenticated()"
+      ><button class="btn btn-lg  ml-auto btn-outline-light">
+        <i class="fa fa-lock"></i>Login
+      </button>
+    </a>
+    <button
+    class="btn btn-lg  ml-auto btn-outline-light"
+    *ngIf="tabletMode === 'MOBILE' && authService.isAuthenticated()" 
+    (click)="productService.logout()"
+  >
+    <i class="fa fa-unlock"></i>Logout
+  </button>
+  </div>
+  <app-cart-list 
+    [ngClass]="{
+      collapse: hideCart && tabletMode === 'MOBILE',
+      add__scroll: tabletMode === 'MOBILE' && !hideCart
+    }"
+    [tabletMode]="tabletMode"
+  ></app-cart-list>
+</section>
