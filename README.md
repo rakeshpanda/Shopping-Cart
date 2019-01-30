@@ -4,24 +4,22 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng serve --open` for running the app. The app will automatically reload if you change any of the source files.
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Download the repository and run npm install to resolve all dependencies.
 
-## Further help
+Persistence is achieved with use of firebase, user need to login to access the shopping cart. First time user have the option to signup with a dummy mail and password. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+User can select the products to cart and increase/ decrease the quantity selected. This updates the total price.
+App is responsive with use of bootstrap 4 classes.
+
+Error on loading of image is handled by defaulting to a no_file image onerrorr
+
+Basic Unit testing is added for validating the service to fetch data from mockup and load the products list, validate components for displaying the product properly on screen with mock data.
+
+[![Capture.jpg](https://i.postimg.cc/9MshYR4g/Capture.jpg)](https://postimg.cc/0MGF8N07)
