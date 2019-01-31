@@ -22,7 +22,7 @@ Error on loading of image is handled by defaulting to a no_file image onerrorr
 
 Basic Unit testing is added for validating the service to fetch data from mockup and load the products list, validate components for displaying the product properly on screen with mock data.
 
-https://postimg.cc/VJftCF85][img]https://i.postimg.cc/VJftCF85/Signin.jpg
-https://postimg.cc/k2TbFtJs][img]https://i.postimg.cc/k2TbFtJs/product-page.jpg
-https://postimg.cc/LnMLHpQt][img]https://i.postimg.cc/LnMLHpQt/mobile-page.jpg
-https://postimg.cc/fkdYnLCW][img]https://i.postimg.cc/fkdYnLCW/cart-page.jpg
+[![Capture.jpg](https://i.postimg.cc/BnDBRh75/Signin.jpg)](https://postimg.cc/0MGF8N07)
+[![Capture.jpg](https://i.postimg.cc/jjb4TzBp/product-page.jpg)](https://postimg.cc/0MGF8N07)
+[![Capture.jpg](https://i.postimg.cc/m2PwyZQ5/mobile-page.jpg)](https://postimg.cc/0MGF8N07)
+[![Capture.jpg](https://i.postimg.cc/MZP5BfjB/cart-page.jpg)](https://postimg.cc/0MGF8N07)
